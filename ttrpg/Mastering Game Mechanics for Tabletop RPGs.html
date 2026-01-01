@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Mechanics Deep Dive</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Outfit:wght@700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #e0e0e0;
+        }
+        .gradient-text {
+            background: linear-gradient(90deg, #4facfe 0%, #00f2fe 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .card-hover {
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3);
+        }
+        h1, h2, h3 {
+            font-family: 'Outfit', sans-serif;
+        }
+        /* Smooth scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Outfit', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: '#4facfe',
+                        secondary: '#00f2fe',
+                        dark: '#1a1a2e',
+                        'dark-secondary': '#16213e',
+                        accent: '#ff8080',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(20px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' },
+                        }
+                    },
+                    animation: {
+                        fadeIn: 'fadeIn 0.8s ease-out forwards',
+                        slideUp: 'slideUp 0.6s ease-out forwards',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gradient-to-br from-dark to-dark-secondary min-h-screen p-6 md:p-12">
+
+    <header class="text-center mb-16 animate-slideUp opacity-0 delay-200">
+        <h1 class="text-5xl md:text-7xl font-bold mb-4 gradient-text">
+            Mastering Game Mechanics for Tabletop RPGs
+        </h1>
+        <p class="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto">
+            Unlock the secrets to creating engaging and immersive game experiences through the art of mechanic design.
+        </p>
+    </header>
+
+    <main class="container mx-auto">
+
+        <section id="video-summary" class="mb-16 animate-slideUp opacity-0 delay-400">
+            <div class="text-center mb-8">
+                <h2 class="text-4xl font-bold text-white mb-4">Video Summary</h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-primary to-secondary mx-auto rounded-full"></div>
+            </div>
+            <div class="card p-6 md:p-8 max-w-4xl mx-auto">
+                <p class="text-lg leading-relaxed">
+                    Game mechanics are foundational to tabletop RPGs, shaping a game's rhythm, tone, and emotional impact while boosting player engagement and storytelling. Designing these mechanics involves both inventing new systems and adapting existing ones, guided by an iterative design process.
+                </p>
+                <h3 class="text-2xl font-bold text-white mt-6 mb-3">Creating New Mechanics</h3>
+                <p class="mb-4">
+                    New mechanics should resonate with a game's core themes and facilitate immersive experiences, often inspired by desired emotional responses or narratives. For instance, horror games use "sanity meters" to simulate dread and unpredictability. Resolution mechanics, such as dice rolls, cards, coins, or custom tools, determine outcomes and guide the narrative flow. The "Theme-Mechanic Alignment" approach ensures mechanics evoke specific themes, like a clock-based system in a heist RPG to create suspense and emphasize risk. When developing a mechanic, clearly define its purpose: whether it's to simulate randomness, reward skill, or control narrative pacing. The chosen mechanic should reflect the game's overall tone, such as flexible, low-stakes systems for lighthearted games or limited player control for horror.
+                </p>
+                <h3 class="text-2xl font-bold text-white mb-3">Types of Resolution Mechanics</h3>
+                <ul class="list-disc list-inside mb-4 ml-4 space-y-2">
+                    <li><strong>Dice:</strong> Versatile and common (e.g., D&D's D20 system for dramatic successes/failures), but require balancing randomness with player skill.</li>
+                    <li><strong>Cards:</strong> Provide memory, progression, and limited outcomes, suitable for narrative-focused games through deck modifications or symbolic interpretation.</li>
+                    <li><strong>Coins/Binary Systems:</strong> Ideal for simple, high-stakes decisions, best used sparingly to heighten tension.</li>
+                    <li><strong>Hybrid Systems:</strong> Combine multiple tools or non-standard objects (like Jenga towers or physical candles) to add unique layers and immersive experiences, requiring careful balance to avoid complexity.</li>
+                </ul>
+                <h3 class="text-2xl font-bold text-white mb-3">Adapting Existing Mechanics</h3>
+                <p class="mb-4">
+                    Borrowing and adapting mechanics from established games can be effective if thoughtfully modified. This requires understanding the original mechanic's purpose and limitations, and assessing its compatibility with the new game's context. For example, combat systems from fantasy RPGs can be adapted into social conflict mechanics for intrigue-heavy games, replacing "hit points" with "credibility points." This approach allows designers to leverage proven frameworks while adding new elements to suit a unique context, such as adding a "fate die" to the D20 system for increased unpredictability.
+                </p>
+                <h3 class="text-2xl font-bold text-white mb-3">Design Process Model (Iterative)</h3>
+                <p class="mb-4">
+                    A structured, iterative design process is crucial for developing robust mechanics:
+                </p>
+                <ol class="list-decimal list-inside ml-4 space-y-2">
+                    <li><strong>Ideation:</strong> Identify the mechanic's core purpose and desired impact on gameplay or player behavior. For example, a "Mystic Resilience" mechanic could allow characters to resist magical effects in battles, adding strategic depth.</li>
+                    <li><strong>Prototyping:</strong> Translate the concept into basic, actionable rules, defining parameters, thresholds, and scales. For "Mystic Resilience," this might involve a limited pool of resilience points that deplete when resisting spells, with a successful roll mitigating the effect. Create a tangible prototype, like a character sheet section or tokens.</li>
+                    <li><strong>Playtesting:</strong> Conduct sessions with different groups to observe player interactions, decision-making, and the mechanic's influence on flow and engagement. Gather specific feedback on clarity, balance, and contributions to the game's overall feel.</li>
+                    <li><strong>Refinement:</strong> Analyze feedback to make targeted adjustments to rules, parameters, or consequences. Rewrite rules for clarity and usability, and design supporting materials (charts, examples, FAQs). The goal is to ensure the mechanic is polished, balanced, cohesive, and seamlessly integrated into the game, enriching both player interaction and the overall story.</li>
+                </ol>
+            </div>
+        </section>
+
+        <section id="llm-prompts" class="animate-slideUp opacity-0 delay-600">
+            <div class="text-center mb-8">
+                <h2 class="text-4xl font-bold text-white mb-4">LLM Prompt Examples</h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-primary to-secondary mx-auto rounded-full"></div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <div class="card p-6 card-hover">
+                    <h3 class="text-2xl font-bold text-white mb-3">Mechanic Concept Generation</h3>
+                    <p class="text-gray-300 mb-4">Given a core game theme and a desired emotional response, generate a concept document for a new game mechanic. The document should describe the mechanic's core purpose, explain how it aligns with the provided theme, and detail how it is designed to evoke the specified emotional response in players. Include examples of how the mechanic might manifest in gameplay.</p>
+                    <a href="#" class="text-primary font-semibold hover:underline">Learn More <span aria-hidden="true">&rarr;</span></a>
+                </div>
+
+                <div class="card p-6 card-hover">
+                    <h3 class="text-2xl font-bold text-white mb-3">Resolution Mechanic Recommendation</h3>
+                    <p class="text-gray-300 mb-4">Given a game's overall tone and a specific narrative goal for a decision-making moment, recommend the most suitable resolution mechanic from the following options: Dice, Cards, Coins/Binary Systems, or Hybrid Systems. Justify your recommendation by explaining how the chosen mechanic's characteristics align with the provided tone and effectively achieve the specified narrative goal, referencing its advantages as described in the video summary.</p>
+                    <a href="#" class="text-primary font-semibold hover:underline">Learn More <span aria-hidden="true">&rarr;</span></a>
+                </div>
+
+                <div class="card p-6 card-hover">
+                    <h3 class="text-2xl font-bold text-white mb-3">Adapt Existing Mechanic</h3>
+                    <p class="text-gray-300 mb-4">Describe how an existing game mechanic can be effectively adapted for a new game context or genre. Provide the original mechanic and the new context. Detail the specific modifications required, including replacing core components (e.g., 'hit points' with 'credibility points'), and provide a clear rationale for each change. Conclude with a new, fitting name for the adapted mechanic.</p>
+                    <a href="#" class="text-primary font-semibold hover:underline">Learn More <span aria-hidden="true">&rarr;</span></a>
+                </div>
+
+                <div class="card p-6 card-hover">
+                    <h3 class="text-2xl font-bold text-white mb-3">Iterative Design Plan</h3>
+                    <p class="text-gray-300 mb-4">Generate a plan for the iterative design process of a specific new game mechanic. Given the mechanic's core concept, outline the steps for Ideation, Prototyping, Playtesting, and Refinement. For each step, describe specific actions, considerations, and expected outcomes relevant to developing and polishing this particular mechanic. Provide concrete examples for each stage based on the given concept.</p>
+                    <a href="#" class="text-primary font-semibold hover:underline">Learn More <span aria-hidden="true">&rarr;</span></a>
+                </div>
+
+                <div class="card p-6 card-hover">
+                    <h3 class="text-2xl font-bold text-white mb-3">Mechanic Purpose & Tone Alignment</h3>
+                    <p class="text-gray-300 mb-4">Given a game's overall tone (e.g., 'flexible, low-stakes' or 'limited player control for horror') and its primary genre, define a clear purpose for a new game mechanic. Explain how this mechanic's design and function would specifically reflect and reinforce the game's overall tone, ensuring strong 'Theme-Mechanic Alignment'. Provide a brief example of how the mechanic would operate in line with this alignment.</p>
+                    <a href="#" class="text-primary font-semibold hover:underline">Learn More <span aria-hidden="true">&rarr;</span></a>
+                </div>
+
+                <div class="card p-6 card-hover">
+                    <h3 class="text-2xl font-bold text-white mb-3">Prototyping Basic Rules</h3>
+                    <p class="text-gray-300 mb-4">Draft a set of basic, actionable rules for prototyping a new game mechanic based on the provided concise concept. The rules should define the mechanic's key parameters (e.g., starting value, maximum/minimum), thresholds for triggering effects, and the core steps for player interaction or resolution. The goal is to create a tangible prototype ready for initial testing.</p>
+                    <a href="#" class="text-primary font-semibold hover:underline">Learn More <span aria-hidden="true">&rarr;</span></a>
+                </div>
+
+                <div class="card p-6 card-hover">
+                    <h3 class="text-2xl font-bold text-white mb-3">Playtesting Feedback Questions</h3>
+                    <p class="text-gray-300 mb-4">Generate a list of targeted questions for playtesters specifically about a given game mechanic. The questions should aim to gather feedback on the mechanic's clarity, balance, player interaction, decision-making impact, and how well it contributes to the game's overall feel and engagement, as described in the playtesting phase of the design process. Focus on getting actionable feedback for refinement.</p>
+                    <a href="#" class="text-primary font-semibold hover:underline">Learn More <span aria-hidden="true">&rarr;</span></a>
+                </div>
+
+                <div class="card p-6 card-hover">
+                    <h3 class="text-2xl font-bold text-white mb-3">Refinement Suggestions</h3>
+                    <p class="text-gray-300 mb-4">Given a description of a game mechanic and hypothetical playtest feedback highlighting specific issues, generate a set of concrete suggestions for refinement. Focus on targeted adjustments to rules, parameters, or consequences. Additionally, suggest potential supporting materials (e.g., charts, examples, FAQs) that could improve clarity and usability, addressing the issues raised in the feedback to make the mechanic polished, balanced, and cohesive.</p>
+                    <a href="#" class="text-primary font-semibold hover:underline">Learn More <span aria-hidden="true">&rarr;</span></a>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        // Simple animation trigger on scroll
+        const animatedElements = document.querySelectorAll('.animate-slideUp');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.remove('opacity-0');
+                    entry.target.classList.add('animate-fadeIn');
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+
+        animatedElements.forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>

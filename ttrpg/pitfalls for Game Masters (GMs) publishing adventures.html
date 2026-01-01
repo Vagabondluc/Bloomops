@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learning Content Remix</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Montserrat:wght@700&display=swap');
+
+        .font-display {
+            font-family: 'Montserrat', sans-serif;
+        }
+        .font-body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-300 font-body antialiased">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-dark': '#1E293B', // Deep Charcoal
+                        'secondary-gray': '#334155', // Darker Gray
+                        'accent-teal': '#0694A2', // Muted Teal
+                        'text-primary': '#E2E8F0', // Light Gray for text
+                        'text-secondary': '#94A3B8', // Lighter Gray for secondary text
+                    },
+                    fontFamily: {
+                        display: ['Montserrat', 'sans-serif'],
+                        body: ['Inter', 'sans-serif'],
+                    },
+                    lineHeight: {
+                        'extra-loose': '1.8',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <header class="py-8 px-4 sm:px-6 lg:px-8 border-b border-gray-700">
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-center text-text-primary font-display tracking-tight">
+            Learning Content Remix
+        </h1>
+    </header>
+
+    <main class="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <section class="mb-16 max-w-3xl mx-auto">
+            <h2 class="text-3xl sm:text-4xl font-bold mb-6 text-accent-teal font-display border-b-2 border-gray-700 pb-3 inline-block">
+                Refined Video Summary
+            </h2>
+            <div class="space-y-6 text-lg text-text-secondary leading-relaxed">
+                <p>
+                    Seth Skorkowsky, an experienced RPG adventure module reviewer and author, provides practical advice and highlights common pitfalls for Game Masters (GMs) publishing adventures. He emphasizes that an adventure module should function as a clear, concise "recipe" for a GM to run a game, rather than a descriptive novel. Its primary purpose is to be easily usable by an unknown GM, demanding clarity and straightforwardness.
+                </p>
+                <p>
+                    Key advice includes:
+                    <ul class="list-disc list-inside pl-5 space-y-2 mt-4">
+                        <li>
+                            <strong>Wording:</strong> Utilize game-specific terminology (e.g., Dungeon Master, Keeper, Referee) and clearly distinguish between "players" (the people) and "characters" (their in-game avatars). Employ direct, active prose by avoiding unnecessary words like "will" and "that."
+                        </li>
+                        <li>
+                            <strong>Ease of Reference:</strong> Structure the module for quick gameplay reference using bullet points, side boxes, and bolded mechanics. The design should prioritize a novice GM's needs, as experienced GMs can adapt to most formats.
+                        </li>
+                        <li>
+                            <strong>Supplemental Material:</strong> Question the necessity of referencing rules or items from supplemental books not included in the core rulebook. If essential, include their stats or page numbers from the corebook directly. Critically, disclose *all* required supplemental books on the first page or in the product description before purchase.
+                        </li>
+                        <li>
+                            <strong>Opening Information:</strong> Provide a comprehensive introduction including a brief summary, required books, suitable character archetypes, and a timeline of past and potential future events. A "dramatis personae" with quick NPC descriptions, motivations, and roleplaying hooks is also highly beneficial.
+                        </li>
+                        <li>
+                            <strong>Flexibility:</strong> Offer multiple starting hooks and explicitly remind GMs that they are free to modify the module to fit their group's playstyle.
+                        </li>
+                        <li>
+                            <strong>Playtesting & Editing:</strong> Rigorously playtest the adventure, ideally with other GMs, to identify unforeseen issues. Always hire a professional editor to ensure clarity and professionalism, as authors often overlook their own mistakes.
+                        </li>
+                        <li>
+                            <strong>Subject Material:</strong> Be cautious with intellectual property. Ensure you have the rights to use specific material or locations. For real-world private locations, consider renaming them or using them as inspiration, clearly stating they are fictionalized. Public locations are generally safer.
+                        </li>
+                        <li>
+                            <strong>Maps & Handouts:</strong> Keep read-aloud sections concise. For hard-to-read handouts, always provide a typed transcript. For key location maps, include room numbers in descriptions and consider offering both a GM version (with hidden information) and a player-friendly version (without spoilers). A simple, clearly drawn map is preferable to none.
+                        </li>
+                    </ul>
+                </p>
+                <p>
+                    Ultimately, the goal is to create an adventure that is easily understood and run by any Game Master, ensuring their experience is as smooth and enjoyable as possible.
+                </p>
+            </div>
+        </section>
+
+        <section class="max-w-3xl mx-auto">
+            <h2 class="text-3xl sm:text-4xl font-bold mb-6 text-accent-teal font-display border-b-2 border-gray-700 pb-3 inline-block">
+                Generated LLM Prompts
+            </h2>
+            <ul class="list-disc list-inside space-y-3 text-lg text-text-secondary leading-relaxed">
+                <li>Explain why an RPG adventure module should be treated like a recipe, not a novel, when writing for publication.</li>
+                <li>What are the key principles of clarity and ease of use in an RPG adventure module?</li>
+                <li>Describe best practices for using game-specific terminology and differentiating 'players' from 'characters' in an RPG adventure module.</li>
+                <li>List formatting techniques that enhance quick reference and usability in an RPG adventure module.</li>
+                <li>Why is it important to design an adventure module with a novice Game Master in mind?</li>
+                <li>What considerations should be made regarding the inclusion of supplemental material from other books in an RPG adventure module?</li>
+                <li>How and where should all required supplemental books be disclosed in an RPG adventure module?</li>
+                <li>Outline the essential components of a comprehensive opening information section for an RPG adventure module.</li>
+                <li>Explain the purpose and necessary details for a 'dramatis personae' section in an RPG adventure, including NPCs' motivations and roleplaying hooks.</li>
+                <li>Why is it important to offer multiple adventure hooks and explicitly remind Game Masters of their freedom to modify the module?</li>
+                <li>Describe the importance of rigorous playtesting for an RPG adventure module, specifically mentioning the benefit of testing with other Game Masters.</li>
+                <li>Justify the expense of hiring a professional editor for an RPG adventure module.</li>
+                <li>What intellectual property considerations should an author be aware of when creating an RPG adventure module, especially concerning real-world locations?</li>
+                <li>What are the best practices for incorporating maps and handouts into an RPG adventure module, including the use of GM vs. player versions?</li>
+                <li>Explain the importance of providing typed transcripts for difficult-to-read handouts in an RPG adventure module.</li>
+            </ul>
+        </section>
+    </main>
+
+</body>
+</html>

@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RPG Module Creation Hub</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Outfit:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, rgba(255,113,133,1) 0%, rgba(255,175,189,1) 100%);
+            border-radius: 8px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(180deg, rgba(255,113,133,0.8) 0%, rgba(255,175,189,0.8) 100%);
+        }
+
+        /* Glassmorphism Effect */
+        .glassmorphism {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+        }
+
+        .card-hover-effect {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card-hover-effect:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 24px 0 rgba(0, 0, 0, 0.2);
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #FF7185 0%, #FFAFAB 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: transparent;
+        }
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'display': ['"Outfit"', 'sans-serif'],
+                        'body': ['"Inter"', 'sans-serif'],
+                    },
+                    colors: {
+                        'primary-gradient-start': '#FF7185',
+                        'primary-gradient-end': '#FFAFAB',
+                        'dark-bg': '#1A1A2E',
+                        'dark-card-bg': '#2E2E48',
+                        'accent-purple': '#8A2BE2',
+                        'accent-blue': '#4169E1',
+                        'text-light': '#E0E0E0',
+                        'text-muted': '#A0A0A0',
+                    },
+                    backgroundImage: {
+                        'primary-gradient': 'linear-gradient(135deg, #FF7185 0%, #FFAFAB 100%)',
+                        'hero-pattern': "url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80')",
+                    },
+                    animation: {
+                        'pulse-gradient': 'pulseGradient 3s infinite',
+                    },
+                    keyframes: {
+                        pulseGradient: {
+                            '0%': { backgroundPosition: '0% 50%' },
+                            '50%': { backgroundPosition: '100% 50%' },
+                            '100%': { backgroundPosition: '0% 50%' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-body bg-gradient-to-br from-dark-bg to-gray-900 text-text-light min-h-screen p-6 md:p-12">
+
+    <header class="text-center mb-12">
+        <h1 class="text-5xl md:text-6xl font-display font-bold mb-4 gradient-text animate-pulse-gradient bg-clip-text">
+            RPG Module Creation Hub
+        </h1>
+        <p class="text-xl md:text-2xl text-text-muted max-w-3xl mx-auto">
+            Your comprehensive guide to crafting compelling RPG adventure modules, featuring video summaries and powerful LLM prompts.
+        </p>
+    </header>
+
+    <main class="container mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12">
+
+        <!-- Video Summary Section -->
+        <section class="glassmorphism p-8 col-span-1">
+            <h2 class="font-display text-3xl font-bold mb-6 text-primary-gradient-start">Video Summary: Crafting & Publishing RPG Adventures</h2>
+            <div class="aspect-w-16 aspect-h-9 mb-6">
+                <iframe
+                    src="https://www.youtube.com/embed/your_video_id_here"
+                    title="Advice on Writing and Publishing RPG Adventure Modules"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen
+                    class="rounded-lg shadow-lg w-full h-full"
+                ></iframe>
+            </div>
+            <p class="text-lg text-text-light mb-4">
+                Seth Skorkowsky offers invaluable insights into creating and publishing RPG adventure modules, treating them as a "recipe" for Game Masters. Discover key strategies for clarity, ease of use, and player engagement.
+            </p>
+            <h3 class="font-display text-2xl font-semibold mb-4 text-accent-purple">Key Takeaways:</h3>
+            <ul class="list-disc list-inside space-y-2 text-text-light pl-4">
+                <li><strong class="text-primary-gradient-start">Wording & Terminology:</strong> Precise language, active voice, conciseness.</li>
+                <li><strong class="text-primary-gradient-start">In-Game Clarity:</strong> Bullet points, side boxes, bold mechanics, page number references.</li>
+                <li><strong class="text-primary-gradient-start">GM's Opening Info:</strong> Summaries, character recommendations, required books, NPCs, ideal endings.</li>
+                <li><strong class="text-primary-gradient-start">Flexible Hooks:</strong> Multiple entry points and clue delivery methods.</li>
+                <li><strong class="text-primary-gradient-start">Avoid Railroading:</strong> Design for player agency and consequences.</li>
+                <li><strong class="text-primary-gradient-start">Playtesting & Editing:</strong> Rigorous testing and professional editing are crucial.</li>
+                <li><strong class="text-primary-gradient-start">IP & Locations:</strong> Mindful use of existing material and real-world settings.</li>
+                <li><strong class="text-primary-gradient-start">Presentation:</strong> Clear maps (GM/Player versions), concise read-alouds, player handouts.</li>
+            </ul>
+        </section>
+
+        <!-- LLM Prompts Section -->
+        <section class="col-span-1">
+            <h2 class="font-display text-3xl font-bold mb-6 gradient-text">LLM Prompts for RPG Module Creation</h2>
+            <p class="text-lg text-text-muted mb-8">Leverage the power of AI to streamline your RPG module development process.</p>
+
+            <!-- Prompt 1 -->
+            <div class="glassmorphism p-6 mb-6 card-hover-effect">
+                <h3 class="font-display text-2xl font-bold mb-3 text-accent-blue flex items-center">
+                    <span class="inline-block w-3 h-3 rounded-full bg-accent-blue mr-3"></span>
+                    Prompt 1: Generate RPG Adventure Module Outline
+                </h3>
+                <p class="text-text-light mb-4">Create a structured outline, focusing on GM clarity and a "recipe" format.</p>
+                <button class="bg-transparent border-2 border-accent-blue text-accent-blue font-semibold py-2 px-4 rounded-lg hover:bg-accent-blue hover:text-white transition duration-300">
+                    <a href="https://example.com/prompt1" target="_blank">Use Prompt</a>
+                </button>
+            </div>
+
+            <!-- Prompt 2 -->
+            <div class="glassmorphism p-6 mb-6 card-hover-effect">
+                <h3 class="font-display text-2xl font-bold mb-3 text-primary-gradient-start flex items-center">
+                    <span class="inline-block w-3 h-3 rounded-full bg-primary-gradient-start mr-3"></span>
+                    Prompt 2: Refine RPG Module Text
+                </h3>
+                <p class="text-text-light mb-4">Enhance clarity, conciseness, and in-game usability of your module text.</p>
+                <button class="bg-transparent border-2 border-primary-gradient-start text-primary-gradient-start font-semibold py-2 px-4 rounded-lg hover:bg-primary-gradient-start hover:text-white transition duration-300">
+                    <a href="https://example.com/prompt2" target="_blank">Use Prompt</a>
+                </button>
+            </div>
+
+            <!-- Prompt 3 -->
+            <div class="glassmorphism p-6 mb-6 card-hover-effect">
+                <h3 class="font-display text-2xl font-bold mb-3 text-accent-purple flex items-center">
+                    <span class="inline-block w-3 h-3 rounded-full bg-accent-purple mr-3"></span>
+                    Prompt 3: Draft "Opening Information" Section
+                </h3>
+                <p class="text-text-light mb-4">Generate comprehensive and concise GM-facing opening details.</p>
+                <button class="bg-transparent border-2 border-accent-purple text-accent-purple font-semibold py-2 px-4 rounded-lg hover:bg-accent-purple hover:text-white transition duration-300">
+                    <a href="https://example.com/prompt3" target="_blank">Use Prompt</a>
+                </button>
+            </div>
+
+             <!-- Prompt 4 -->
+             <div class="glassmorphism p-6 mb-6 card-hover-effect">
+                <h3 class="font-display text-2xl font-bold mb-3 text-green-500 flex items-center">
+                    <span class="inline-block w-3 h-3 rounded-full bg-green-500 mr-3"></span>
+                    Prompt 4: Generate Flexible Adventure Hooks
+                </h3>
+                <p class="text-text-light mb-4">Create multiple, adaptable hooks to seamlessly integrate into campaigns.</p>
+                <button class="bg-transparent border-2 border-green-500 text-green-500 font-semibold py-2 px-4 rounded-lg hover:bg-green-500 hover:text-white transition duration-300">
+                    <a href="https://example.com/prompt4" target="_blank">Use Prompt</a>
+                </button>
+            </div>
+
+             <!-- Prompt 5 -->
+             <div class="glassmorphism p-6 mb-6 card-hover-effect">
+                <h3 class="font-display text-2xl font-bold mb-3 text-yellow-400 flex items-center">
+                    <span class="inline-block w-3 h-3 rounded-full bg-yellow-400 mr-3"></span>
+                    Prompt 5: Transform Encounter Description
+                </h3>
+                <p class="text-text-light mb-4">Format encounter details for GM clarity and in-game usability.</p>
+                <button class="bg-transparent border-2 border-yellow-400 text-yellow-400 font-semibold py-2 px-4 rounded-lg hover:bg-yellow-400 hover:text-white transition duration-300">
+                    <a href="https://example.com/prompt5" target="_blank">Use Prompt</a>
+                </button>
+            </div>
+
+             <!-- Prompt 6 -->
+             <div class="glassmorphism p-6 mb-6 card-hover-effect">
+                <h3 class="font-display text-2xl font-bold mb-3 text-pink-500 flex items-center">
+                    <span class="inline-block w-3 h-3 rounded-full bg-pink-500 mr-3"></span>
+                    Prompt 6: Create Read-Aloud Text & GM Notes
+                </h3>
+                <p class="text-text-light mb-4">Generate evocative player text and detailed GM notes for scenes.</p>
+                <button class="bg-transparent border-2 border-pink-500 text-pink-500 font-semibold py-2 px-4 rounded-lg hover:bg-pink-500 hover:text-white transition duration-300">
+                    <a href="https://example.com/prompt6" target="_blank">Use Prompt</a>
+                </button>
+            </div>
+
+             <!-- Prompt 7 -->
+             <div class="glassmorphism p-6 mb-6 card-hover-effect">
+                <h3 class="font-display text-2xl font-bold mb-3 text-indigo-500 flex items-center">
+                    <span class="inline-block w-3 h-3 rounded-full bg-indigo-500 mr-3"></span>
+                    Prompt 7: Draft Playtesting Feedback Checklist
+                </h3>
+                <p class="text-text-light mb-4">Create a comprehensive checklist for playtesters.</p>
+                <button class="bg-transparent border-2 border-indigo-500 text-indigo-500 font-semibold py-2 px-4 rounded-lg hover:bg-indigo-500 hover:text-white transition duration-300">
+                    <a href="https://example.com/prompt7" target="_blank">Use Prompt</a>
+                </button>
+            </div>
+
+             <!-- Prompt 8 -->
+             <div class="glassmorphism p-6 mb-6 card-hover-effect">
+                <h3 class="font-display text-2xl font-bold mb-3 text-red-500 flex items-center">
+                    <span class="inline-block w-3 h-3 rounded-full bg-red-500 mr-3"></span>
+                    Prompt 8: Draft IP & Location Usage Checklist
+                </h3>
+                <p class="text-text-light mb-4">Review IP rights and location usage for legal and ethical compliance.</p>
+                <button class="bg-transparent border-2 border-red-500 text-red-500 font-semibold py-2 px-4 rounded-lg hover:bg-red-500 hover:text-white transition duration-300">
+                    <a href="https://example.com/prompt8" target="_blank">Use Prompt</a>
+                </button>
+            </div>
+
+             <!-- Prompt 9 -->
+             <div class="glassmorphism p-6 card-hover-effect">
+                <h3 class="font-display text-2xl font-bold mb-3 text-blue-500 flex items-center">
+                    <span class="inline-block w-3 h-3 rounded-full bg-blue-500 mr-3"></span>
+                    Prompt 9: Provide Map Design Guidance
+                </h3>
+                <p class="text-text-light mb-4">Guidance on creating effective GM and player maps integrated with adventure text.</p>
+                <button class="bg-transparent border-2 border-blue-500 text-blue-500 font-semibold py-2 px-4 rounded-lg hover:bg-blue-500 hover:text-white transition duration-300">
+                    <a href="https://example.com/prompt9" target="_blank">Use Prompt</a>
+                </button>
+            </div>
+
+        </section>
+
+    </main>
+
+</body>
+</html>

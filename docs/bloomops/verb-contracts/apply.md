@@ -3,9 +3,9 @@
 ## Purpose
 Use provided rules or procedures to produce a result from specified inputs.
 
-## Required sections
+## Contract sections
 - **Purpose**
-- **Required Sections**
+- **Contract Sections**
 - **Forbidden Moves**
 - **Valid Output Shape**
 - **Strict-Mode Note**

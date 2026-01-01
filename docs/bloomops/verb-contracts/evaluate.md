@@ -3,9 +3,9 @@
 ## Purpose
 Judge quality or suitability using explicit criteria from the provided inputs.
 
-## Required sections
+## Contract sections
 - **Purpose**
-- **Required Sections**
+- **Contract Sections**
 - **Forbidden Moves**
 - **Valid Output Shape**
 - **Strict-Mode Note**

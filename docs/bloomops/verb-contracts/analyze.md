@@ -3,9 +3,9 @@
 ## Purpose
 Break down the provided subject into parts and surface patterns or causes based solely on given inputs.
 
-## Required sections
+## Contract sections
 - **Purpose**
-- **Required Sections**
+- **Contract Sections**
 - **Forbidden Moves**
 - **Valid Output Shape**
 - **Strict-Mode Note**

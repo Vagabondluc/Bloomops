@@ -5,7 +5,6 @@ Capture and restate previously provided facts or definitions without adding new 
 
 ## Required sections
 - **Purpose**
-- **Required Sections**
 - **Forbidden Moves**
 - **Valid Output Shape**
 - **Strict-Mode Note**

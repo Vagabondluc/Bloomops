@@ -3,9 +3,9 @@
 ## Purpose
 Explain meaning and relationships in the provided material, staying within the given context.
 
-## Required sections
+## Contract sections
 - **Purpose**
-- **Required Sections**
+- **Contract Sections**
 - **Forbidden Moves**
 - **Valid Output Shape**
 - **Strict-Mode Note**

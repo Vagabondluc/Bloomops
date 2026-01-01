@@ -27,6 +27,11 @@ Each BloomOps doc must include:
 ## User Stories
 - US-001: As a <role>, I want <goal>, so that <benefit>.
 
+## Scene Planning
+- CH01-SC01: <Chapter 1 - Scene 1 title or short description>
+- CH01-SC02: <Chapter 1 - Scene 2 title or short description>
+- CH02-SC01: <Chapter 2 - Scene 1 title or short description>
+
 ## Bloom Sections
 ### BO-REMEMBER-001: Remember
 Inputs:
@@ -60,11 +65,17 @@ Derived fields:
 project:
   name: "BloomOps"
   source_hash: "<sha256>"
+  doctrine_frozen: false
 user_stories:
   - id: "US-001"
     role: "author"
     goal: "draft a book"
     benefit: "produce a full manuscript"
+scene_plan:
+  - id: "CH01-SC01"
+    label: "Chapter 1 - Opening scene"
+  - id: "CH01-SC02"
+    label: "Chapter 1 - First conflict"
 sections:
   - id: "BO-CREATE-001"
     verb: "create"
@@ -81,4 +92,36 @@ open_questions: []
 - Each Bloom section includes inputs and outputs.
 - `source_hash` must match the Markdown file content.
 - Any automation output must include `trace_ids` referencing Bloom section IDs.
+- Scene plan IDs must be human-readable and stable (format `CH##-SC##`).
+- `doctrine_frozen` must be true before Layer 2 generation.
 
+## Layer 1 LLM Client (BloomOps Authoring)
+
+### Purpose
+Provide a user-facing LLM client that helps author BloomOps docs, including outline creation and scene iteration guidance.
+
+### Delivery
+- v0.1 may be a Gradio UI, CLI, or simple web client.
+- UI must be optional; BloomOps docs remain editable in Markdown.
+
+### Core Flows
+1. Capture project intent and create the initial BloomOps Markdown.
+2. Assist with series outline generation and refinement.
+3. Assist with chapter outline and scene list iteration.
+4. Record assumptions and open questions for unresolved items.
+
+### Data Outputs
+- BloomOps Markdown (authoritative)
+- BloomOps JSON/YAML (derived)
+- Interaction log (optional but recommended)
+
+### Constraints
+- Must not change BloomOps docs without user confirmation.
+- Must record which Bloom sections were updated by the user.
+
+### Suggested UI Sections
+- Intent Summary
+- User Stories
+- Outline Builder
+- Scene Planning
+- Assumptions / Open Questions

@@ -29,3 +29,5 @@ Each run must emit:
 - outputs generated
 - pass/fail for smoke tests
 
+## LLM Provider
+- Workers may use Ollama as the LLM provider.

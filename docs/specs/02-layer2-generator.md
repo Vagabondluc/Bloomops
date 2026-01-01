@@ -20,6 +20,7 @@ Define how Layer 2 converts BloomOps docs into PRD, specs, and TDD artifacts, in
 - Every requirement in PRD/specs/TDD includes `trace_ids`.
 - Any missing data must generate an assumption entry and a user-facing notice.
 - Critiques must identify gaps, contradictions, and testability issues.
+- Layer 2 must refuse to run unless `doctrine_frozen` is true.
 
 ## Assumption Log Format
 ```md
@@ -42,4 +43,3 @@ Each requirement in PRD/specs/TDD includes:
 ```md
 trace_ids: [BO-ANALYZE-002, US-003]
 ```
-

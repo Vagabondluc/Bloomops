@@ -31,10 +31,14 @@ BloomOps is a three-layer system that turns human intent into executable, testab
 
 ## Requirements
 - BloomOps Markdown is authoritative; JSON/YAML is derived.
+- `doctrine_frozen` in JSON/YAML must be set to true before Layer 2 generation.
 - Each generated artifact traces back to BloomOps section IDs.
 - Ambiguity behavior: proceed with assumption logs and user notification.
 - Jason book prompts must be mapped to BloomOps stages and used to construct a full book workflow.
 - Worker interface must be explicit: inputs, outputs, and logs.
+- Workers must support an n8n-like orchestration layer (node-based workflows, step dependencies, retries).
+- Book workflow must support per-chapter loops with multi-pass editing (critique, edit, copyproof, tighten).
+- Layer 1 includes an AI LLM client UI to guide BloomOps outline and scene iteration with the user.
 - All automation steps are logged with timestamps, inputs, and output summaries.
 
 ## Success Metrics
@@ -52,4 +56,3 @@ BloomOps is a three-layer system that turns human intent into executable, testab
 - Confirm v0.1 non-goals.
 - Confirm minimum Bloom verb set for v0.1.
 - Identify which worker scripts already exist.
-

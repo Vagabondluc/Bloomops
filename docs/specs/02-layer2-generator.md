@@ -21,6 +21,8 @@ Define how Layer 2 converts BloomOps docs into PRD, specs, and TDD artifacts, in
 - Any missing data must generate an assumption entry and a user-facing notice.
 - Critiques must identify gaps, contradictions, and testability issues.
 - Layer 2 must refuse to run unless `doctrine_frozen` is true.
+- Layer 2 must refuse to run unless `run_snapshot.source_hash` matches the current BloomOps `source_hash`.
+- Assumptions require explicit user acceptance before downstream generation continues.
 
 ## Assumption Log Format
 ```md
@@ -37,6 +39,7 @@ Layer 2 runs a critique prompt against PRD/specs/TDD with the following rules:
 - Identify ambiguous requirements.
 - Identify non-testable statements.
 - Provide a fix list with exact sections to change.
+- Critique must use a distinct model or a deterministic lint pass from the generation model.
 
 ## Traceability
 Each requirement in PRD/specs/TDD includes:

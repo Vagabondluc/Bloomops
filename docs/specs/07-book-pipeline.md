@@ -60,6 +60,11 @@ For each chapter `CH-###`:
 - Previous scene text is passed into the next scene brief and draft nodes.
 - Previous chapter text is passed into the first scene of the next chapter.
 
+## Correction and Rollback
+- If a scene fails validation after append, mark it invalid and regenerate the scene.
+- Regenerated scenes must create a new versioned artifact and re-append.
+- Chapter compilation must use the latest valid version of each scene.
+
 ## Verification Hooks
 - Each node emits a summary and checksum for its output.
 - Each chapter includes word count, POV, and prohibited word checks.

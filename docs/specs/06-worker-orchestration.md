@@ -28,6 +28,29 @@ A workflow includes:
 - optional loop definition that expands into per-chapter nodes
 - optional nested loop definition that expands into per-scene nodes
 
+## Workflow Schema (YAML Example)
+```yaml
+workflow_id: "book-v0.1"
+run:
+  user: "author"
+  trace_ids: ["US-001"]
+nodes:
+  - node_id: "callsheet"
+    worker_name: "generate-callsheet"
+    inputs:
+      braindump: "{{inputs.braindump}}"
+      genre_tropes: "{{inputs.genre_tropes}}"
+    outputs: ["callsheet_path"]
+edges:
+  - from: "callsheet"
+    to: "characters"
+loops:
+  chapters:
+    source: "outline.chapters"
+    scene_loop:
+      source: "bloomops.scene_plan"
+```
+
 ## Execution Rules
 - Validate the DAG before execution (no cycles).
 - A node runs only when all dependencies succeed.

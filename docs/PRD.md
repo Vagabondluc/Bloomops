@@ -32,6 +32,7 @@ BloomOps is a three-layer system that turns human intent into executable, testab
 ## Requirements
 - BloomOps Markdown is authoritative; JSON/YAML is derived.
 - `doctrine_frozen` in JSON/YAML must be set to true before Layer 2 generation.
+- `run_snapshot.source_hash` must match the current BloomOps Markdown before Layer 2 generation.
 - Each generated artifact traces back to BloomOps section IDs.
 - Ambiguity behavior: proceed with assumption logs and user notification.
 - Jason book prompts must be mapped to BloomOps stages and used to construct a full book workflow.

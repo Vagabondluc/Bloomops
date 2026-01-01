@@ -14,6 +14,7 @@ Each BloomOps doc must include:
 - Title
 - Intent summary
 - User stories
+- Scene planning and constraints
 - Bloom verb sections with inputs, outputs, constraints, and prompts
 - Assumptions and open questions
 
@@ -31,6 +32,11 @@ Each BloomOps doc must include:
 - CH01-SC01: <Chapter 1 - Scene 1 title or short description>
 - CH01-SC02: <Chapter 1 - Scene 2 title or short description>
 - CH02-SC01: <Chapter 2 - Scene 1 title or short description>
+
+## Scene Constraints
+- Max scenes per chapter: <number>
+- Target words per scene: <min>-<max>
+- Max total scenes per run: <number>
 
 ## Bloom Sections
 ### BO-REMEMBER-001: Remember
@@ -66,6 +72,10 @@ project:
   name: "BloomOps"
   source_hash: "<sha256>"
   doctrine_frozen: false
+  run_snapshot:
+    id: "RUN-YYYYMMDD-001"
+    source_hash: "<sha256>"
+    frozen_at: "YYYY-MM-DDTHH:MM:SSZ"
 user_stories:
   - id: "US-001"
     role: "author"
@@ -76,6 +86,11 @@ scene_plan:
     label: "Chapter 1 - Opening scene"
   - id: "CH01-SC02"
     label: "Chapter 1 - First conflict"
+scene_constraints:
+  max_scenes_per_chapter: 5
+  target_scene_words_min: 1200
+  target_scene_words_max: 1800
+  max_total_scenes: 80
 sections:
   - id: "BO-CREATE-001"
     verb: "create"
@@ -94,6 +109,7 @@ open_questions: []
 - Any automation output must include `trace_ids` referencing Bloom section IDs.
 - Scene plan IDs must be human-readable and stable (format `CH##-SC##`).
 - `doctrine_frozen` must be true before Layer 2 generation.
+- `run_snapshot` must be present and match the current `source_hash` before Layer 2 generation.
 
 ## Layer 1 LLM Client (BloomOps Authoring)
 

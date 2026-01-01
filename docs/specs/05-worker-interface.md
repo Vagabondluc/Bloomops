@@ -70,3 +70,20 @@ Required actions for the book pipeline:
 ## derive-scene-list Requirements
 - Input includes `scene_plan` from BloomOps JSON/YAML.
 - Output emits an ordered list of scene IDs and labels for the chapter.
+
+## Action I/O Requirements (v0.1)
+- `generate-callsheet` inputs: `braindump`, `genre_tropes`; outputs: `callsheet_path`
+- `generate-characters` inputs: `braindump`, `callsheet`, `genre_tropes`; outputs: `characters_path`
+- `generate-worldbuilding` inputs: `braindump`, `callsheet`, `genre_tropes`; outputs: `worldbuilding_path`
+- `generate-outline` inputs: `worldbuilding`, `characters`, `braindump`, `genre_tropes`, `outline_template`; outputs: `outline_path`
+- `generate-style-sheet` inputs: `writing_samples`; outputs: `style_sheet_path`
+- `generate-scene-brief` inputs: `outline`, `characters`, `worldbuilding`, `previous_scene_text`, `chapter_label`; outputs: `scene_brief_path`
+- `draft-scene` inputs: `scene_brief`, `style_sheet`, `prose_style_example`, `prohibited_words`, `context`; outputs: `draft_path`
+- `critique-scene` inputs: `draft`, `scene_brief`, `style_sheet`, `prose_style_example`, `prohibited_words`; outputs: `improvement_plan_path`
+- `apply-scene-improvement` inputs: `draft`, `improvement_plan`; outputs: `revised_path`
+- `copyproof-scene` inputs: `revised`; outputs: `copyproof_path`
+- `tighten-scene-pass-1` inputs: `copyproof`; outputs: `tighten1_path`
+- `tighten-scene-pass-2` inputs: `tighten1`; outputs: `final_path`
+- `append-scene` inputs: `chapter_path`, `scene_path`, `scene_id`; outputs: `chapter_path`, `chapter_checksum`
+- `compile-chapter` inputs: `chapter_path`, `scene_paths[]`; outputs: `chapter_path`
+- `append-chapter` inputs: `manuscript_path`, `chapter_path`, `chapter_id`; outputs: `manuscript_path`, `manuscript_checksum`
